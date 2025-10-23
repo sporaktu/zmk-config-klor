@@ -23,7 +23,7 @@ jobs:
       - name: Create renamed zip
         run: |
           cd firmware
-          zip -r ../klor-firmware-${{ steps.datetime.outputs.date }}-${{ steps.datetime.outputs.time }}.zip .
+          zip ../klor-firmware-${{ steps.datetime.outputs.date }}-${{ steps.datetime.outputs.time }}.zip *.uf2
           cd ..
 
       - name: Upload renamed firmware
