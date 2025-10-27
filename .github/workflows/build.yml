@@ -20,17 +20,11 @@ jobs:
           echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
           echo "time=$(date +'%H%M%S')" >> $GITHUB_OUTPUT
 
-      - name: Create renamed zip
-        run: |
-          cd firmware
-          zip ../klor-firmware-${{ steps.datetime.outputs.date }}-${{ steps.datetime.outputs.time }}.zip *.uf2
-          cd ..
-
       - name: Upload renamed firmware
         uses: actions/upload-artifact@v4
         with:
           name: klor-firmware-${{ steps.datetime.outputs.date }}-${{ steps.datetime.outputs.time }}
-          path: klor-firmware-${{ steps.datetime.outputs.date }}-${{ steps.datetime.outputs.time }}.zip
+          path: firmware/*.uf2
 
       - name: Delete original firmware artifact
         uses: geekyeggo/delete-artifact@v5
