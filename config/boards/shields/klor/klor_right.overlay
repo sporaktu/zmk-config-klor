@@ -21,6 +21,12 @@
 		;
 };
 
-&right_encoder {
-	status = "okay";
+// Disable right encoder and remove from sensors array
+// &right_encoder {
+// 	status = "okay";
+// };
+
+// Override sensors array to exclude right encoder
+&sensors {
+	sensors = <&left_encoder>;
 };

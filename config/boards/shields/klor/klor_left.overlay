@@ -20,3 +20,8 @@
 &left_encoder {
 	status = "okay";
 };
+
+// Override sensors array to only include left encoder
+&sensors {
+	sensors = <&left_encoder>;
+};
