@@ -21,12 +21,8 @@
 		;
 };
 
-// Disable right encoder and remove from sensors array
-// &right_encoder {
-// 	status = "okay";
-// };
-
-// Override sensors array to exclude right encoder
+// Disable encoders on right side - no encoder hardware present
+// Override sensors array to be empty (no encoders on this side)
 &sensors {
-	sensors = <&left_encoder>;
+	sensors = <>;
 };

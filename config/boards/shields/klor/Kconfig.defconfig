@@ -8,7 +8,12 @@ if SHIELD_KLOR_LEFT
 
 endif # LEFT
 
+if SHIELD_KLOR_RIGHT
 
+    config ZMK_KEYBOARD_NAME
+        default "KLOR Right"
+
+endif # RIGHT
 
 if SHIELD_KLOR_LEFT || SHIELD_KLOR_RIGHT
 
