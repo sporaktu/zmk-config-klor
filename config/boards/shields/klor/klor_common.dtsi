@@ -34,7 +34,7 @@
 		status = "disabled";
 	};
 
-	sensors {
+	sensors: sensors {
 		compatible = "zmk,keymap-sensors";
 		sensors = <&left_encoder &right_encoder>;
 	};
