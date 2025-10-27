@@ -20,9 +20,3 @@
 		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
 		;
 };
-
-// Disable encoders on right side - no encoder hardware present
-// Override sensors array to be empty (no encoders on this side)
-&sensors {
-	sensors = <>;
-};
