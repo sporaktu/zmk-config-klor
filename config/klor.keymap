@@ -61,7 +61,7 @@
 
         quote {
             bindings = <&kp SQT>;
-            key-positions = <19 9>;
+            key-positions = <19 20>;
         };
 
         dash {
@@ -76,7 +76,7 @@
 
         activate_gaming {
             bindings = <&to 3>;
-            key-positions = <1 2 3 40>;
+            key-positions = <1 2 3 38>;
             layers = <0>;
         };
     };
