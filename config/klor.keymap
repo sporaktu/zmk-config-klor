@@ -41,18 +41,7 @@
 
 / {
     behaviors {
-        // Custom layer-tap with proper timing
-        lt_func: lt_func {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
-        };
-
         // Tap dance: single tap = NAV layer, double tap = MOUSE layer
-
         td_nav_mouse: td_nav_mouse {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -61,7 +50,6 @@
         };
 
         // Tap dance: single tap = NUMBER layer, double tap = SYMBOL layer
-
         td_num_sym: td_num_sym {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -144,10 +132,10 @@
             // └───────────────────────────────────────────────────────────┘
 
             bindings = <
-                        &kp Q  &kp W  &kp E    &kp R         &kp T                        &kp Y      &kp U          &kp I       &kp O    &kp P
-&kp TAB                 &kp A  &kp S  &kp D    &kp F         &kp G                        &kp H      &kp J          &kp K       &kp L    &kp SEMI  &kp SQT
-&lt_func FUNCTION GRAVE &kp Z  &kp X  &kp C    &kp V         &kp B      &trans   &trans   &kp N      &kp M          &kp COMMA   &kp DOT  &kp FSLH  &kp BSLH
-                                      &td_nav_mouse  &mo HOMELEFT  &kp SPACE  &kp DEL  &kp TAB  &kp SPACE  &mo HOMERIGHT  &td_num_sym
+                    &kp Q  &kp W  &kp E    &kp R         &kp T                        &kp Y      &kp U          &kp I       &kp O    &kp P
+&kp TAB             &kp A  &kp S  &kp D    &kp F         &kp G                        &kp H      &kp J          &kp K       &kp L    &kp SEMI  &kp SQT
+&lt FUNCTION GRAVE  &kp Z  &kp X  &kp C    &kp V         &kp B      &trans   &trans   &kp N      &kp M          &kp COMMA   &kp DOT  &kp FSLH  &kp BSLH
+                                  &td_nav_mouse  &mo HOMELEFT  &kp SPACE  &kp DEL  &kp TAB  &kp SPACE  &mo HOMERIGHT  &td_num_sym
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
