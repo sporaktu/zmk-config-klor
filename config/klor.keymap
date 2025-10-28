@@ -40,6 +40,7 @@
 #define BT_C_A BT_CLR_ALL
 
 / {
+    behaviors {
         // Tap dance: single tap = NAV layer, double tap = MOUSE layer
         td_nav_mouse: td_nav_mouse {
             compatible = "zmk,behavior-tap-dance";
