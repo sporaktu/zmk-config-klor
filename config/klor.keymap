@@ -272,9 +272,9 @@
         function_layer {
             label = "FUNCTION";
             bindings = <
-        &kp F9  &kp F10  &kp F11  &kp F12  &trans                  &trans  &trans  &trans  &trans  &trans
-&kp F5  &kp F5  &kp F6   &kp F7   &kp F8   &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &to SYSTEM  &bt B0       &bt B1       &bt B2       &bt B3                  &trans  &kp F7  &kp F8  &kp F9  &kp F12
+&kp F5  &kp F5      &bt B4       &bt B5       &bt BT_NXT   &bt BT_PRV              &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
+&trans  &kp F1      &kp F2       &kp F3       &kp F4       &bt BT_CLR  &trans  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
                          &trans   &trans   &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
