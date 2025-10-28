@@ -3,30 +3,3 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-
-  rename-artifact:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download firmware artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: firmware
-          path: firmware
-
-      - name: Get current date and time
-        id: datetime
-        run: |
-          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-          echo "time=$(date +'%H%M%S')" >> $GITHUB_OUTPUT
-
-      - name: Upload renamed firmware
-        uses: actions/upload-artifact@v4
-        with:
-          name: klor-firmware-${{ steps.datetime.outputs.date }}-${{ steps.datetime.outputs.time }}
-          path: firmware/*.uf2
-
-      - name: Delete original firmware artifact
-        uses: geekyeggo/delete-artifact@v5
-        with:
-          name: firmware

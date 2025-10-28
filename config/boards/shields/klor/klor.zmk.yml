@@ -1,14 +1,14 @@
 file_format: "1"
 id: klor
-name: KLOR
+name: Klor
 type: shield
-url: https://github.com/GEIGEIGEIST/KLOR
+url: 
 requires: [pro_micro]
-exposes: [i2c_oled]
+exposes: 
 features:
   - keys
-  - display
   - encoder
+  - oled
 siblings:
   - klor_left
   - klor_right
