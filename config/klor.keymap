@@ -42,6 +42,7 @@
 / {
     behaviors {
         // Tap dance: single tap = NAV layer, double tap = MOUSE layer
+
         td_nav_mouse: td_nav_mouse {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -50,6 +51,7 @@
         };
 
         // Tap dance: single tap = NUMBER layer, double tap = SYMBOL layer
+
         td_num_sym: td_num_sym {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -132,9 +134,9 @@
             // └───────────────────────────────────────────────────────────┘
 
             bindings = <
-                    &kp Q  &kp W  &kp E    &kp R         &kp T                        &kp Y      &kp U          &kp I       &kp O    &kp P
-&kp TAB             &kp A  &kp S  &kp D    &kp F         &kp G                        &kp H      &kp J          &kp K       &kp L    &kp SEMI  &kp SQT
-&lt FUNCTION GRAVE  &kp Z  &kp X  &kp C    &kp V         &kp B      &trans   &trans   &kp N      &kp M          &kp COMMA   &kp DOT  &kp FSLH  &kp BSLH
+                    &kp Q  &kp W  &kp E          &kp R         &kp T                        &kp Y      &kp U          &kp I        &kp O    &kp P
+&kp TAB             &kp A  &kp S  &kp D          &kp F         &kp G                        &kp H      &kp J          &kp K        &kp L    &kp SEMI  &kp SQT
+&lt FUNCTION GRAVE  &kp Z  &kp X  &kp C          &kp V         &kp B      &trans   &trans   &kp N      &kp M          &kp COMMA    &kp DOT  &kp FSLH  &kp BSLH
                                   &td_nav_mouse  &mo HOMELEFT  &kp SPACE  &kp DEL  &kp TAB  &kp SPACE  &mo HOMERIGHT  &td_num_sym
             >;
 
@@ -272,9 +274,9 @@
         function_layer {
             label = "FUNCTION";
             bindings = <
-        &to SYSTEM  &bt B0       &bt B1       &bt B2       &bt B3                  &trans  &kp F7  &kp F8  &kp F9  &kp F12
-&kp F5  &kp F5      &bt B4       &bt B5       &bt BT_NXT   &bt BT_PRV              &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
-&trans  &kp F1      &kp F2       &kp F3       &kp F4       &bt BT_CLR  &trans  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
+        &kp F9  &kp F10  &kp F11  &kp F12  &trans                  &trans  &kp F7  &kp F8  &kp F9  &kp F12
+&kp F5  &kp F5  &kp F6   &kp F7   &kp F8   &trans                  &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
+&trans  &kp F1  &kp F2   &kp F3   &kp F4   &to 11  &trans  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
                          &trans   &trans   &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
