@@ -21,6 +21,7 @@
 		;
 };
 
-&right_encoder {
-	status = "okay";
-};
+// Right encoder is not installed, keep it disabled
+// &right_encoder {
+// 	status = "okay";
+// };
