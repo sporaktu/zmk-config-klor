@@ -15,7 +15,9 @@
 include:
   - board: nice_nano_v2
     shield: klor_left
+    snippet: zmk-usb-logging
   - board: nice_nano_v2
     shield: klor_right
+    snippet: zmk-usb-logging
   - board: nice_nano_v2
     shield: settings_reset
