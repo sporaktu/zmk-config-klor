@@ -58,6 +58,17 @@
             tapping-term-ms = <200>;
             bindings = <&mo NUMBER>, <&mo SYMBOL>;
         };
+
+        // Custom sticky key with longer timeout (2 seconds)
+        // One-shot behavior: deactivates after first keypress
+
+        skl: sticky_key_long {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            release-after-ms = <2000>;
+            bindings = <&kp>;
+            ignore-modifiers;
+        };
     };
 
     combos {
@@ -258,10 +269,10 @@
         homeleft_layer {
             label = "HOMELEFT";
             bindings = <
-          &key_repeat  &kp TAB   &kp ESC    &kp DEL    &kp BSPC                  &trans  &trans  &trans  &trans  &trans
-&sk LGUI  &sk LGUI     &sk LALT  &sk LCTRL  &sk LSHFT  &kp RET                   &trans  &trans  &trans  &trans  &trans  &trans
-&trans    &trans       &trans    &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                 &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans
+          &key_repeat  &kp TAB    &kp ESC     &kp DEL     &kp BSPC                  &trans  &trans  &trans  &trans  &trans
+&skl LGUI &skl LGUI    &skl LALT  &skl LCTRL  &skl LSHFT  &kp RET                   &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &trans       &trans     &trans      &trans      &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                  &trans      &trans      &trans    &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -272,10 +283,10 @@
         homeright_layer {
             label = "HOMERIGHT";
             bindings = <
-        &trans  &trans  &trans  &trans  &trans                  &kp BSPC  &kp DEL    &kp ESC    &kp TAB   &key_repeat
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp RET   &sk LSHFT  &sk LCTRL  &sk LALT  &sk LGUI     &sk LGUI
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans    &trans       &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans
+        &trans  &trans  &trans  &trans  &trans                  &kp BSPC  &kp DEL     &kp ESC     &kp TAB    &key_repeat
+&trans  &trans  &trans  &trans  &trans  &trans                  &kp RET   &skl LSHFT  &skl LCTRL  &skl LALT  &skl LGUI    &skl LGUI
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans      &trans      &trans     &trans       &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans    &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
