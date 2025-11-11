@@ -61,6 +61,24 @@
             tapping-term-ms = <200>;
             bindings = <&mo NUMBER>, <&mo SYMBOL>;
         };
+
+        // Tap dance: single tap = play/pause, double tap = mute
+
+        td_enc_media: td_enc_media {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp C_PP>, <&kp C_MUTE>;
+        };
+
+        // Tap dance: single tap = F8, double tap = F7 (for gaming layer)
+
+        td_enc_gaming: td_enc_gaming {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F8>, <&kp F7>;
+        };
     };
 
     combos {
@@ -149,10 +167,10 @@
             // └───────────────────────────────────────────────────────────┘
 
             bindings = <
-        &kp Q     &kp W  &kp E          &kp R         &kp T                      &kp Y      &kp U          &kp I        &kp O    &kp P
-&trans  &kp A     &kp S  &kp D          &kp F         &kp G                      &kp H      &kp J          &kp K        &kp L    &kp SEMI  &kp SQT
-&trans  &lt 11 Z  &kp X  &kp C          &kp V         &lt 10 B   &trans  &trans  &kp N      &kp M          &kp COMMA    &kp DOT  &kp FSLH  &kp BSLH
-                         &td_nav_mouse  &mo HOMELEFT  &kp SPACE  &trans  &trans  &kp SPACE  &mo HOMERIGHT  &td_num_sym
+        &kp Q     &kp W  &kp E          &kp R         &kp T                              &kp Y      &kp U          &kp I        &kp O    &kp P
+&trans  &kp A     &kp S  &kp D          &kp F         &kp G                              &kp H      &kp J          &kp K        &kp L    &kp SEMI  &kp SQT
+&trans  &lt 11 Z  &kp X  &kp C          &kp V         &lt 10 B   &td_enc_media  &trans  &kp N      &kp M          &kp COMMA    &kp DOT  &kp FSLH  &kp BSLH
+                         &td_nav_mouse  &mo HOMELEFT  &kp SPACE  &trans         &trans  &kp SPACE  &mo HOMERIGHT  &td_num_sym
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -163,13 +181,13 @@
         nav_layer {
             label = "NAV";
             bindings = <
-          &to MOUSE  &kp LEFT  &kp UP     &kp RIGHT  &kp PG_UP                  &kp TAB    &kp LEFT  &kp UP    &kp RIGHT  &trans
-&kp BSPC  &kp BSPC   &kp HOME  &kp DOWN   &kp END    &kp PG_DN                  &kp PG_UP  &kp HOME  &kp DOWN  &kp END    &trans  &trans
-&kp DEL   &trans     &trans    &kp LSHFT  &kp LALT   &kp TAB    &trans  &trans  &kp PG_DN  &trans    &trans    &trans     &trans  &trans
-                               &to BASE   &trans     &trans     &trans  &trans  &trans     &trans    &to BASE
+          &to MOUSE  &kp LEFT  &kp UP     &kp RIGHT  &kp PG_UP                   &kp TAB    &kp LEFT  &kp UP    &kp RIGHT  &trans
+&kp BSPC  &kp BSPC   &kp HOME  &kp DOWN   &kp END    &kp PG_DN                   &kp PG_UP  &kp HOME  &kp DOWN  &kp END    &trans  &trans
+&kp DEL   &trans     &trans    &kp LSHFT  &kp LALT   &kp TAB    &kp ENTER  &trans  &kp PG_DN  &trans    &trans    &trans     &trans  &trans
+                               &to BASE   &trans     &trans     &trans     &trans  &trans     &trans    &to BASE
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp DOWN UP>;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -177,10 +195,10 @@
         mouse_layer {
             label = "MOUSE";
             bindings = <
-          &to NAV   &trans  &trans    &trans  &trans                  &trans  &trans  &trans    &trans  &trans
-&kp BSPC  &kp BSPC  &trans  &trans    &trans  &trans                  &trans  &trans  &trans    &trans  &trans  &trans
-&kp DEL   &trans    &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans
-                            &to BASE  &trans  &trans  &trans  &trans  &trans  &trans  &to BASE
+          &to NAV   &trans  &trans    &trans  &trans                          &trans  &trans  &trans    &trans  &trans
+&kp BSPC  &kp BSPC  &trans  &trans    &trans  &trans                          &trans  &trans  &trans    &trans  &trans  &trans
+&kp DEL   &trans    &trans  &trans    &trans  &trans  &td_enc_media  &trans  &trans  &trans  &trans    &trans  &trans  &trans
+                            &to BASE  &trans  &trans  &trans         &trans  &trans  &trans  &to BASE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -191,10 +209,10 @@
         gaming_layer {
             label = "GAMING";
             bindings = <
-             &mo GAMING2  &kp A  &kp W      &kp D      &kp E                      &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
-&mo GAMING3  &mo GAMING3  &kp Q  &kp S      &kp R      &kp F                      &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
-&kp ESC      &kp TAB      &kp Z  &kp X      &kp C      &kp V      &trans  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
-                                 &kp LCTRL  &kp LSHFT  &kp SPACE  &trans  &trans  &lt HOMERIGHT SPACE  &trans  &trans
+             &mo GAMING2  &kp A  &kp W      &kp D      &kp E                          &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
+&mo GAMING3  &mo GAMING3  &kp Q  &kp S      &kp R      &kp F                          &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
+&kp ESC      &kp TAB      &kp Z  &kp X      &kp C      &kp V      &td_enc_gaming  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
+                                 &kp LCTRL  &kp LSHFT  &kp SPACE  &trans          &trans  &lt HOMERIGHT SPACE  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -205,10 +223,10 @@
         gaming2_layer {
             label = "GAMING2";
             bindings = <
-          &mo GAMING  &kp A  &kp W      &kp D      &kp T                      &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
-&kp LALT  &kp LALT    &kp Q  &kp S      &kp R      &kp G                      &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
-&kp ESC   &kp TAB     &kp Z  &kp X      &kp C      &kp B      &trans  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
-                             &kp LCTRL  &kp LSHFT  &kp SPACE  &trans  &trans  &lt HOMERIGHT SPACE  &trans  &trans
+          &mo GAMING  &kp A  &kp W      &kp D      &kp T                          &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
+&kp LALT  &kp LALT    &kp Q  &kp S      &kp R      &kp G                          &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
+&kp ESC   &kp TAB     &kp Z  &kp X      &kp C      &kp B      &td_enc_gaming  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
+                             &kp LCTRL  &kp LSHFT  &kp SPACE  &trans          &trans  &lt HOMERIGHT SPACE  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -219,10 +237,10 @@
         gaming3_layer {
             label = "GAMING3";
             bindings = <
-            &kp LALT    &kp A  &kp W      &kp D      &kp N1                     &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
-&mo GAMING  &mo GAMING  &kp Q  &kp S      &kp R      &kp N2                     &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
-&kp ESC     &kp TAB     &kp Z  &kp X      &kp C      &kp N3     &trans  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
-                               &kp LCTRL  &kp LSHFT  &kp SPACE  &trans  &trans  &lt HOMERIGHT SPACE  &trans  &trans
+            &kp LALT    &kp A  &kp W      &kp D      &kp N1                         &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
+&mo GAMING  &mo GAMING  &kp Q  &kp S      &kp R      &kp N2                         &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
+&kp ESC     &kp TAB     &kp Z  &kp X      &kp C      &kp N3     &td_enc_gaming  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
+                               &kp LCTRL  &kp LSHFT  &kp SPACE  &trans          &trans  &lt HOMERIGHT SPACE  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -233,13 +251,13 @@
         number_layer {
             label = "NUMBER";
             bindings = <
-        &alt_tab  &trans  &trans  &kp LS(LBRC)  &kp LS(RBRC)                  &kp EQUAL  &kp N7  &kp N8  &kp N9  &trans
-&trans  &trans    &trans  &trans  &kp LBKT      &kp RBKT                      &kp MINUS  &kp N4  &kp N5  &kp N6  &trans  &kp BACKSPACE
-&trans  &trans    &trans  &trans  &kp LPAR      &kp RPAR      &trans  &trans  &kp DOT    &kp N1  &kp N2  &kp N3  &kp N0  &kp DEL
-                          &trans  &trans        &trans        &trans  &trans  &trans     &trans  &trans
+        &alt_tab  &trans  &trans  &kp LS(LBRC)  &kp LS(RBRC)                   &kp EQUAL  &kp N7  &kp N8  &kp N9  &trans
+&trans  &trans    &trans  &trans  &kp LBKT      &kp RBKT                       &kp MINUS  &kp N4  &kp N5  &kp N6  &trans  &kp BACKSPACE
+&trans  &trans    &trans  &trans  &kp LPAR      &kp RPAR      &kp ENTER  &trans  &kp DOT    &kp N1  &kp N2  &kp N3  &kp N0  &kp DEL
+                          &trans  &trans        &trans        &trans     &trans  &trans     &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -247,13 +265,13 @@
         symbol_layer {
             label = "SYMBOL";
             bindings = <
-        &trans  &trans  &trans  &trans  &trans                  &kp LS(EQUAL)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &to NUMBER
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp LS(MINUS)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp BSPC    &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LS(DOT)    &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N0)  &kp DEL
-                        &trans  &trans  &trans  &trans  &trans  &trans         &trans      &trans
+        &trans  &trans  &trans  &trans  &trans                         &kp LS(EQUAL)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &to NUMBER
+&trans  &trans  &trans  &trans  &trans  &trans                         &kp LS(MINUS)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp BSPC    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &td_enc_media  &trans  &kp LS(DOT)    &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N0)  &kp DEL
+                        &trans  &trans  &trans  &trans         &trans  &trans         &trans      &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -261,10 +279,10 @@
         homeleft_layer {
             label = "HOMELEFT";
             bindings = <
-          &key_repeat  &kp TAB   &kp ESC    &kp DEL    &kp BSPC                  &trans  &trans  &trans  &trans  &trans
-&sk LGUI  &sk LGUI     &sk LALT  &sk LCTRL  &sk LSHFT  &kp RET                   &trans  &trans  &trans  &trans  &trans  &trans
-&trans    &trans       &trans    &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                 &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans
+          &key_repeat  &kp TAB   &kp ESC    &kp DEL    &kp BSPC                         &trans  &trans  &trans  &trans  &trans
+&sk LGUI  &sk LGUI     &sk LALT  &sk LCTRL  &sk LSHFT  &kp RET                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &trans       &trans    &trans     &trans     &trans    &td_enc_media  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                 &trans     &trans     &trans    &trans         &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -275,10 +293,10 @@
         homeright_layer {
             label = "HOMERIGHT";
             bindings = <
-        &trans  &trans  &trans  &trans  &trans                  &kp BSPC  &kp DEL    &kp ESC    &kp TAB   &key_repeat
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp RET   &sk LSHFT  &sk LCTRL  &sk LALT  &sk LGUI     &sk LGUI
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans    &trans       &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans
+        &trans  &trans  &trans  &trans  &trans                         &kp BSPC  &kp DEL    &kp ESC    &kp TAB   &key_repeat
+&trans  &trans  &trans  &trans  &trans  &trans                         &kp RET   &sk LSHFT  &sk LCTRL  &sk LALT  &sk LGUI     &sk LGUI
+&trans  &trans  &trans  &trans  &trans  &trans  &td_enc_media  &trans  &trans    &trans     &trans     &trans    &trans       &trans
+                        &trans  &trans  &trans  &trans         &trans  &trans    &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -289,10 +307,10 @@
         function_layer {
             label = "FUNCTION";
             bindings = <
-        &kp F9  &kp F10  &kp F11  &kp F12  &trans                  &trans  &kp F7  &kp F8  &kp F9  &kp F12
-&kp F5  &kp F5  &kp F6   &kp F7   &kp F8   &trans                  &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
-&trans  &kp F1  &kp F2   &kp F3   &kp F4   &to 11  &trans  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
-                         &trans   &trans   &trans  &trans  &trans  &trans  &trans  &trans
+        &kp F9  &kp F10  &kp F11  &kp F12  &trans                         &trans  &kp F7  &kp F8  &kp F9  &kp F12
+&kp F5  &kp F5  &kp F6   &kp F7   &kp F8   &trans                         &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
+&trans  &kp F1  &kp F2   &kp F3   &kp F4   &to 11  &td_enc_media  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
+                         &trans   &trans   &trans  &trans         &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -303,10 +321,10 @@
         system_layer {
             label = "SYSTEM";
             bindings = <
-             &sys_reset   &bt BT_CLR  &out OUT_TOG  &to BASE_MAC  &to BASE                      &trans  &kp F7  &kp F8  &kp F9  &kp F12
-&bootloader  &bootloader  &bt BT_NXT  &bt BT_SEL 3  &bt BT_SEL 4  &trans                        &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
-&trans       &trans       &bt BT_PRV  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
-                                      &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans
+             &sys_reset   &bt BT_CLR  &out OUT_TOG  &to BASE_MAC  &to BASE                             &trans  &kp F7  &kp F8  &kp F9  &kp F12
+&bootloader  &bootloader  &bt BT_NXT  &bt BT_SEL 3  &bt BT_SEL 4  &trans                               &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
+&trans       &trans       &bt BT_PRV  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &td_enc_media  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
+                                      &trans        &trans        &trans        &trans         &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -317,10 +335,10 @@
         base_mac_layer {
             label = "BASE_MAC";
             bindings = <
-        &kp Q     &kp W  &kp E          &kp R             &kp T                        &kp Y      &kp U              &kp I        &kp O    &kp P
-&trans  &kp A     &kp S  &kp D          &kp F             &kp G                        &kp H      &kp J              &kp K        &kp L    &kp SEMI  &kp SQT
-&trans  &lt 11 Z  &kp X  &kp C          &kp V             &lt 10 B   &trans   &trans   &kp N      &kp M              &kp COMMA    &kp DOT  &kp FSLH  &kp BSLH
-                         &td_nav_mouse  &mo HOMELEFT_MAC  &kp SPACE  &kp DEL  &kp TAB  &kp SPACE  &mo HOMERIGHT_MAC  &td_num_sym
+        &kp Q     &kp W  &kp E          &kp R             &kp T                               &kp Y      &kp U              &kp I        &kp O    &kp P
+&trans  &kp A     &kp S  &kp D          &kp F             &kp G                               &kp H      &kp J              &kp K        &kp L    &kp SEMI  &kp SQT
+&trans  &lt 11 Z  &kp X  &kp C          &kp V             &lt 10 B   &td_enc_media  &trans   &kp N      &kp M              &kp COMMA    &kp DOT  &kp FSLH  &kp BSLH
+                         &td_nav_mouse  &mo HOMELEFT_MAC  &kp SPACE  &kp DEL        &kp TAB  &kp SPACE  &mo HOMERIGHT_MAC  &td_num_sym
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -331,10 +349,10 @@
         homeleft_mac_layer {
             label = "HOMELEFT_MAC";
             bindings = <
-           &key_repeat  &kp TAB   &kp ESC   &kp DEL    &kp BSPC                  &trans  &trans  &trans  &trans  &trans
-&sk LCTRL  &sk LCTRL    &sk LALT  &sk LGUI  &sk LSHFT  &kp RET                   &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &trans       &trans    &trans    &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                  &trans    &trans     &trans    &trans  &trans  &trans  &trans  &trans
+           &key_repeat  &kp TAB   &kp ESC   &kp DEL    &kp BSPC                         &trans  &trans  &trans  &trans  &trans
+&sk LCTRL  &sk LCTRL    &sk LALT  &sk LGUI  &sk LSHFT  &kp RET                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans       &trans    &trans    &trans     &trans    &td_enc_media  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                  &trans    &trans     &trans    &trans         &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -345,10 +363,10 @@
         homeright_mac_layer {
             label = "HOMERIGHT_MAC";
             bindings = <
-        &trans  &trans  &trans  &trans  &trans                  &kp BSPC  &kp DEL    &kp ESC   &kp TAB   &key_repeat
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp RET   &sk LSHFT  &sk LGUI  &sk LALT  &sk LCTRL    &sk LCTRL
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans    &trans    &trans       &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans
+        &trans  &trans  &trans  &trans  &trans                         &kp BSPC  &kp DEL    &kp ESC   &kp TAB   &key_repeat
+&trans  &trans  &trans  &trans  &trans  &trans                         &kp RET   &sk LSHFT  &sk LGUI  &sk LALT  &sk LCTRL    &sk LCTRL
+&trans  &trans  &trans  &trans  &trans  &trans  &td_enc_media  &trans  &trans    &trans     &trans    &trans    &trans       &trans
+                        &trans  &trans  &trans  &trans         &trans  &trans    &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
