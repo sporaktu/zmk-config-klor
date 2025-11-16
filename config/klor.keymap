@@ -79,6 +79,13 @@
             tapping-term-ms = <200>;
             bindings = <&kp F8>, <&kp F7>;
         };
+
+        td_alt_ctrl: td_alt_ctrl {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ALT_CTRL";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT>, <&kp LCTRL>;
+        };
     };
 
     combos {
@@ -218,7 +225,7 @@
              &mo GAMING2  &kp A  &kp W         &kp D      &kp E                              &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
 &mo GAMING3  &mo GAMING3  &kp Q  &kp S         &kp R      &kp F                              &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
 &kp ESC      &kp TAB      &kp Z  &kp X         &kp C      &kp V      &td_enc_gaming  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
-                                 &kp LEFT_ALT  &kp LSHFT  &kp SPACE  &trans          &trans  &lt HOMERIGHT SPACE  &trans  &trans
+                                 &td_alt_ctrl  &kp LSHFT  &kp SPACE  &trans          &trans  &lt HOMERIGHT SPACE  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -229,10 +236,10 @@
         gaming2_layer {
             label = "GAMING2";
             bindings = <
-          &mo GAMING  &kp A  &kp W      &kp D      &kp T                              &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
-&kp LALT  &kp LALT    &kp Q  &kp S      &kp R      &kp G                              &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
-&kp ESC   &kp TAB     &kp Z  &kp X      &kp C      &kp B      &td_enc_gaming  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
-                             &kp LCTRL  &kp LSHFT  &kp SPACE  &trans          &trans  &lt HOMERIGHT SPACE  &trans  &trans
+          &mo GAMING  &kp A  &kp W         &kp D      &kp T                              &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
+&kp LALT  &kp LALT    &kp Q  &kp S         &kp R      &kp G                              &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
+&kp ESC   &kp TAB     &kp Z  &kp X         &kp C      &kp B      &td_enc_gaming  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
+                             &td_alt_ctrl  &kp LSHFT  &kp SPACE  &trans          &trans  &lt HOMERIGHT SPACE  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -243,10 +250,10 @@
         gaming3_layer {
             label = "GAMING3";
             bindings = <
-            &kp LALT    &kp A  &kp W      &kp D      &kp N1                             &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
-&mo GAMING  &mo GAMING  &kp Q  &kp S      &kp R      &kp N2                             &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
-&kp ESC     &kp TAB     &kp Z  &kp X      &kp C      &kp N3     &td_enc_gaming  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
-                               &kp LCTRL  &kp LSHFT  &kp SPACE  &trans          &trans  &lt HOMERIGHT SPACE  &trans  &trans
+            &kp LALT    &kp A  &kp W         &kp D      &kp N1                             &kp EQUAL            &kp N7  &kp N8  &kp N9  &trans
+&mo GAMING  &mo GAMING  &kp Q  &kp S         &kp R      &kp N2                             &kp MINUS            &kp N4  &kp N5  &kp N6  &kp BSPC  &trans
+&kp ESC     &kp TAB     &kp Z  &kp X         &kp C      &kp N3     &td_enc_gaming  &trans  &kp DOT              &kp N1  &kp N2  &kp N3  &kp N0    &kp DEL
+                               &td_alt_ctrl  &kp LSHFT  &kp SPACE  &trans          &trans  &lt HOMERIGHT SPACE  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
