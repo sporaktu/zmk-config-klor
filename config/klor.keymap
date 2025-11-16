@@ -264,10 +264,10 @@
         number_layer {
             label = "NUMBER";
             bindings = <
-        &alt_tab  &trans  &trans  &kp LS(LBRC)  &kp LS(RBRC)                     &kp EQUAL  &kp N7  &kp N8  &kp N9  &trans
-&trans  &trans    &trans  &trans  &kp LBKT      &kp RBKT                         &kp MINUS  &kp N4  &kp N5  &kp N6  &trans  &kp BACKSPACE
-&trans  &trans    &trans  &trans  &kp LPAR      &kp RPAR      &kp ENTER  &trans  &kp DOT    &kp N1  &kp N2  &kp N3  &kp N0  &kp DEL
-                          &trans  &trans        &trans        &trans     &trans  &trans     &trans  &trans
+        &alt_tab  &trans         &trans            &kp LS(LBRC)  &kp LS(RBRC)                     &kp EQUAL  &kp N7  &kp N8  &kp N9  &trans
+&trans  &trans    &trans         &trans            &kp LBKT      &kp RBKT                         &kp MINUS  &kp N4  &kp N5  &kp N6  &trans  &kp BACKSPACE
+&trans  &trans    &kp LESS_THAN  &kp GREATER_THAN  &kp LPAR      &kp RPAR      &kp ENTER  &trans  &kp DOT    &kp N1  &kp N2  &kp N3  &kp N0  &kp DEL
+                                 &trans            &trans        &trans        &trans     &trans  &trans     &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
