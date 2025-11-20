@@ -142,6 +142,13 @@
             key-positions = <36 43>;
             require-prior-idle-ms = <100>;
         };
+
+        escape {
+            bindings = <&kp ESC>;
+            key-positions = <23 11>;
+            timeout-ms = <50>;
+            layers = <3 4 5>;
+        };
     };
 
     macros {
