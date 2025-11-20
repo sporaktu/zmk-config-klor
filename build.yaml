@@ -13,18 +13,18 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: sparkfun_pro_micro_rp2040
     shield: klor_left
-  - board: nice_nano_v2
+  - board: sparkfun_pro_micro_rp2040
     shield: klor_right
-  - board: nice_nano_v2
+  - board: sparkfun_pro_micro_rp2040
     shield: settings_reset
-  # Debug builds with USB logging (can cause instability)
-  - board: nice_nano_v2
+  # Debug builds with USB logging
+  - board: sparkfun_pro_micro_rp2040
     shield: klor_left
     snippet: zmk-usb-logging
     artifact-name: klor_left_debug
-  - board: nice_nano_v2
+  - board: sparkfun_pro_micro_rp2040
     shield: klor_right
     snippet: zmk-usb-logging
     artifact-name: klor_right_debug
