@@ -95,7 +95,7 @@
             timeout-ms = <50>;
             key-positions = <1 0>;
             bindings = <&kp ESC>;
-            layers = <0 2 6 7 8 9 13 14>;
+            layers = <8 9 13 14>;
         };
 
         reset_layers {
@@ -107,11 +107,13 @@
         quote {
             bindings = <&kp SQT>;
             key-positions = <19 20>;
+            layers = <9>;
         };
 
         dash {
             bindings = <&kp MINUS>;
             key-positions = <31 32>;
+            layers = <6>;
         };
 
         system_layer {
@@ -128,13 +130,13 @@
         tab {
             bindings = <&kp TAB>;
             key-positions = <11 12>;
-            layers = <0 1 2 6 7 8 9 10>;
+            layers = <8>;
         };
 
         Grave {
             bindings = <&kp GRAVE>;
             key-positions = <23 24>;
-            layers = <0>;
+            layers = <8>;
         };
 
         to-base {
