@@ -320,10 +320,10 @@
         homeleft_layer {
             label = "HOMELEFT";
             bindings = <
-          &key_repeat  &kp TAB   &kp ESC    &kp DEL    &kp BSPC                         &trans  &trans  &trans  &trans  &trans
-&sk LGUI  &sk LGUI     &sk LALT  &sk LCTRL  &sk LSHFT  &kp RET                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans    &mo 11       &trans    &trans     &trans     &mo 10    &td_enc_media  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                 &trans     &trans     &trans    &trans         &trans  &trans  &trans  &trans
+          &kp ESC   &kp TAB   &kp ESC    &kp DEL      &kp BSPC                         &trans  &trans  &trans  &trans  &trans
+&sk LGUI  &sk LGUI  &sk LALT  &sk LCTRL  &sk LSHFT    &kp RET                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &mo 11    &trans    &trans     &key_repeat  &mo 10    &td_enc_media  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                              &trans     &trans       &trans    &trans         &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -334,10 +334,10 @@
         homeright_layer {
             label = "HOMERIGHT";
             bindings = <
-        &trans  &trans  &trans  &trans  &trans                         &kp BSPC  &kp DEL    &kp ESC    &kp TAB   &key_repeat
-&trans  &trans  &trans  &trans  &trans  &trans                         &kp RET   &sk LSHFT  &sk LCTRL  &sk LALT  &sk LGUI     &sk LGUI
-&trans  &trans  &trans  &trans  &trans  &trans  &td_enc_media  &trans  &trans    &trans     &trans     &trans    &trans       &trans
-                        &trans  &trans  &trans  &trans         &trans  &trans    &trans     &trans
+        &trans  &trans  &trans  &trans  &trans                         &kp BSPC  &kp DEL      &kp ESC    &kp TAB   &kp ESC
+&trans  &trans  &trans  &trans  &trans  &trans                         &kp RET   &sk LSHFT    &sk LCTRL  &sk LALT  &sk LGUI  &sk LGUI
+&trans  &trans  &trans  &trans  &trans  &trans  &td_enc_media  &trans  &trans    &key_repeat  &trans     &trans    &trans    &trans
+                        &trans  &trans  &trans  &trans         &trans  &trans    &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
