@@ -164,7 +164,7 @@
             layers = <3 4 5>;
         };
 
-        reset-layers {
+        gaming_reset_layers {
             bindings = <&to 0>;
             key-positions = <0 1 38>;
             layers = <3 4 5>;
