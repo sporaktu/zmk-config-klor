@@ -116,11 +116,6 @@
             layers = <6>;
         };
 
-        system_layer {
-            bindings = <&to 11>;
-            key-positions = <39 22>;
-        };
-
         activate_gaming {
             bindings = <&to 3>;
             key-positions = <1 2 3 38>;
@@ -130,12 +125,6 @@
         tab {
             bindings = <&kp TAB>;
             key-positions = <11 12>;
-            layers = <8>;
-        };
-
-        Grave {
-            bindings = <&kp GRAVE>;
-            key-positions = <23 24>;
             layers = <8>;
         };
 
@@ -293,8 +282,8 @@
             label = "NUMBER";
             bindings = <
         &alt_tab  &trans         &trans            &kp LS(LBRC)  &kp LS(RBRC)                     &kp EQUAL  &kp N7  &kp N8  &kp N9  &trans
-&trans  &trans    &trans         &trans            &kp LBKT      &kp RBKT                         &kp MINUS  &kp N4  &kp N5  &kp N6  &trans  &kp BACKSPACE
-&trans  &trans    &kp LESS_THAN  &kp GREATER_THAN  &kp LPAR      &kp RPAR      &kp ENTER  &trans  &kp DOT    &kp N1  &kp N2  &kp N3  &kp N0  &kp DEL
+&trans  &trans    &trans         &trans            &kp LBKT      &kp RBKT                         &kp MINUS  &kp N4  &kp N5  &kp N6  &kp BACKSLASH  &kp BACKSPACE
+&trans  &trans    &kp LESS_THAN  &kp GREATER_THAN  &kp LPAR      &kp RPAR      &kp ENTER  &trans  &kp DOT    &kp N1  &kp N2  &kp N3  &kp N0         &kp DEL
                                  &trans            &trans        &trans        &trans     &trans  &trans     &trans  &trans
             >;
 
@@ -320,10 +309,10 @@
         homeleft_layer {
             label = "HOMELEFT";
             bindings = <
-          &kp ESC   &kp TAB   &kp ESC    &kp DEL      &kp BSPC                         &trans  &trans  &trans  &trans  &trans
-&sk LGUI  &sk LGUI  &sk LALT  &sk LCTRL  &sk LSHFT    &kp RET                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans    &mo 11    &trans    &trans     &key_repeat  &mo 10    &td_enc_media  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                              &trans     &trans       &trans    &trans         &trans  &trans  &trans  &trans
+          &kp ESC   &kp TAB    &kp ESC    &kp DEL      &kp BSPC                         &trans  &trans  &trans  &trans  &trans
+&sk LGUI  &sk LGUI  &sk LALT   &sk LCTRL  &sk LSHFT    &kp RET                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &mo 11    &kp GRAVE  &trans     &key_repeat  &mo 10    &td_enc_media  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                               &trans     &trans       &trans    &trans         &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -336,7 +325,7 @@
             bindings = <
         &trans  &trans  &trans  &trans  &trans                         &kp BSPC  &kp DEL      &kp ESC    &kp TAB   &kp ESC
 &trans  &trans  &trans  &trans  &trans  &trans                         &kp RET   &sk LSHFT    &sk LCTRL  &sk LALT  &sk LGUI  &sk LGUI
-&trans  &trans  &trans  &trans  &trans  &trans  &td_enc_media  &trans  &trans    &key_repeat  &trans     &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &td_enc_media  &trans  &trans    &key_repeat  &trans     &kp SQT   &trans    &trans
                         &trans  &trans  &trans  &trans         &trans  &trans    &trans       &trans
             >;
 
