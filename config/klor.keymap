@@ -165,7 +165,7 @@
             layers = <3 4 5>;
         };
 
-        tab {
+        gaming_tab {
             bindings = <&kp TAB>;
             key-positions = <11 12>;
             layers = <3 4 5>;
