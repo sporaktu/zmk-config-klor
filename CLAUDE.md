@@ -15,11 +15,11 @@ Firmware is built automatically via GitHub Actions on push, pull request, or man
 1. Triggered automatically when changes are pushed to the repository
 2. Uses ZMK's build-user-config workflow (`.github/workflows/build.yml`)
 3. Builds based on the board/shield combinations defined in `build.yaml`:
-   - `nice_nano_v2` + `klor_left`
-   - `nice_nano_v2` + `klor_right`
+   - `nice_nano//zmk` + `klor_left raw_hid_adapter` (ZMK Studio snippet)
+   - `nice_nano//zmk` + `klor_right` (plus `settings_reset` and USB-logging debug builds)
 4. Outputs firmware files as `firmware.zip` in GitHub Actions artifacts:
-   - `klor_left-nice_nano_v2-zmk.uf2`
-   - `klor_right-nice_nano_v2-zmk.uf2`
+   - `klor_left raw_hid_adapter-nice_nano__zmk-zmk.uf2`
+   - `klor_right-nice_nano__zmk-zmk.uf2`
 
 ### Flashing Firmware
 
@@ -101,7 +101,7 @@ The keymap (`config/klor.keymap`) uses a sophisticated 12-layer architecture:
 ## Feature Configuration
 
 Current settings in `config/klor.conf`:
-- **NFC pins as GPIOs**: Critical for nice!nano v2 compatibility
+- **NFC pins as GPIOs**: set via `&uicr { nfct-pins-as-gpios; }` in `boards/shields/klor/boards/nice_nano_nrf52840_zmk_2_0_0.overlay` (Zephyr 4.1 removed the Kconfig option)
 - **Encoders**: EC11 support enabled
 - **Bluetooth**: Enhanced TX power (+8dBm), supports 6 concurrent connections and 6 paired devices
 - **Behavior queue**: Increased to 512 for complex layer-tap/hold-tap behaviors
