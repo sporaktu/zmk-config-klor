@@ -348,8 +348,8 @@
             label = "HOMERIGHT";
             bindings = <
         &trans  &trans  &trans  &trans  &trans                         &kp BSPC  &kp DEL      &kp ESC       &kp TAB   &kp ESC
-&trans  &trans  &trans  &trans  &trans  &trans                         &kp RET   &sk LSHFT    &sk LCTRL     &sk LALT  &sk LGUI  &sk LGUI
-&trans  &trans  &trans  &trans  &trans  &trans  &td_enc_media  &trans  &trans    &key_repeat  &kp CAPSLOCK  &kp SQT   &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans                         &kp RET   &sk LSHFT    &sk LCTRL     &sk LALT  &sk LGUI    &sk LGUI
+&trans  &trans  &trans  &trans  &trans  &trans  &td_enc_media  &trans  &trans    &key_repeat  &kp CAPSLOCK  &kp SQT   &kp INSERT  &trans
                         &trans  &trans  &trans  &trans         &trans  &trans    &trans       &trans
             >;
 
