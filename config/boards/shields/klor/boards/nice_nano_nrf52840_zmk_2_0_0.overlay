@@ -1,3 +1,8 @@
+// Use the nRF52840 NFC pins as GPIOs (replaces CONFIG_NFCT_PINS_AS_GPIOS on Zephyr 4.1+)
+&uicr {
+	nfct-pins-as-gpios;
+};
+
 // RGB underglow disabled for minimal configuration
 // Uncomment to enable RGB underglow support
 

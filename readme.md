@@ -26,8 +26,8 @@ Polydactyl is the default layout. If you choose one of the other layouts you can
 - scroll down and unzip the `firmware.zip` archive that contains the latest firmware
 - connect the left half of the KLOR to your PC, press reset twice
 - the keyboard should now appear as a mass storage device
-- drag'n'drop the `klor_left-nice_nano_v2-zmk.uf2` file from the archive onto the storage device
-- repeat this process with the right half and the `klor_right-nice_nano_v2-zmk.uf2` file.
+- drag'n'drop the `klor_left raw_hid_adapter-nice_nano-zmk.uf2` file from the archive onto the storage device
+- repeat this process with the right half and the `klor_right-nice_nano-zmk.uf2` file.
 
 
 ## KNOWN ISSUES
